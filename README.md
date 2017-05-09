@@ -23,6 +23,5 @@ Run ```python i3switch.py theme_name```, where theme_name theme from "themes" fo
 # Themes
 ## dark
 
-![scrrenshot](/bg/ocean.png)
 ![scrrenshot](/bg/universe-nebula-1920x1080.jpg)
 ![scrrenshot](/bg/106838.jpg)
