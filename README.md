@@ -1,7 +1,7 @@
 # My i3config
 The configuration includes i3 theme switcher.
 
-based on
+based on https://github.com/LightAir/i3config
 
 [i3-gaps](https://aur.archlinux.org/packages/i3-gaps-git/)
 [dmenu](https://www.archlinux.org/packages/?name=dmenu)
