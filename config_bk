@@ -1,0 +1,403 @@
+#--------------------------------------
+# Font configuration section
+#--------------------------------------
+
+font pango: Roboto Condensed 9
+
+
+#--------------------------------------
+#  Section Variables
+#--------------------------------------
+
+# Available palette
+# #EF5571 #8BABB6 #8BB3CC #E59757
+# #C0A2BA #85B988 #C4BE67 #EE6555
+# #DEDEDE #626262 #D64937 #21252E
+
+# colors classes
+set $cbfocol #21252E
+set $cbgfocol #21252E
+set $ctfocol #F2EBC7
+set $cifocol #F2EBC7
+set $cbficol #348899
+set $cbgficol #348899
+set $ctficol #21252E
+set $cificol #21252E
+set $cbuncol #6C6C6C
+set $cbguncol #6C6C6C
+set $ctuncol #F2EBC7
+set $ciuncol #F2EBC7
+set $cburcol #AC4344
+set $cbgurcol #AC4344
+set $cturcol #F2EBC7
+set $ciurcol #F2EBC7
+set $cbplcol #FBD977
+set $cbgplcol #FBD977
+set $ctplcol #21252E
+set $ciplcol #21252E
+
+#  Colors ws
+set $wbgcolor #21252E
+set $wstcolor #F2EBC7
+set $wspcolor #F2EBC7
+set $fwbcolor #769070
+set $fwbgcolor #769070
+set $fwtcolor #F2EBC7
+set $awbcolor #F2EBC7
+set $awbgcolor #F2EBC7
+set $awtcolor #21252E
+set $iwbcolor #21252E
+set $iwbgcolor #21252E
+set $iwtcolor #F2EBC7
+set $uwbcolor #AC4344
+set $uwbgcolor #AC4344
+set $uwtcolor #F2EBC7
+
+# gaps
+set $gaps_inner 8
+set $gaps_outer 2
+
+# Path to the config folder
+set $home /home/yoga/.config/i3/
+
+# Windows key
+set $mod Mod4
+# l
+set $up 46
+# k
+set $down 45
+# j
+set $left 44
+# ;
+set $right 47
+
+# воркспейсы
+set $ws1 1:
+set $ws2 2:
+set $ws3 3:
+set $ws4 4:
+set $ws5 5:
+set $ws6 6:
+set $ws7 7:
+set $ws8 8:
+set $ws9 9:
+set $ws10 10:
+
+
+#--------------------------------------
+# Bind section
+#--------------------------------------
+
+# Terminal
+bindsym $mod+Return exec --no-startup-id urxvt
+bindsym $mod+Shift+Return exec --no-startup-id xterm
+
+# Close the mod + q window
+bindsym $mod+Shift+q kill
+
+# launcher mod + d
+bindsym $mod+d exec j4-dmenu-desktop
+
+# http://www.webupd8.org/2016/06/how-to-get-unity-like-hud-searchable.html
+# bindcode $mod+38 exec ~/.config/i3/bin/i3-hud-menu.py
+
+# System
+# mod + ctrl + r
+bindcode $mod+Ctrl+27 exec shutdown -r now
+# mod + ctrl + o
+bindcode $mod+Ctrl+32 exec shutdown -h now
+# Recause the config file
+# Mod + shift + c
+bindcode $mod+Shift+54 reload
+# Restart wm. (Saves the layout)
+# Mod+shift+r
+bindcode $mod+Shift+27 restart
+# Quit (from X session)
+# Mod+shift+e
+bindcode $mod+Shift+26 exec "i3-nagbar -t warning -m 'You a quiter??' -b 'Tottaly' 'i3-msg exit'"
+# Lock Mod+shift+l
+bindcode $mod+shift+46 exec i3lock
+
+# change focus
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+
+# split in horizontal orientation  Mod + h
+bindcode $mod+43 split h
+
+# split in vertical orientation Mod + v
+bindcode $mod+55 split v
+
+# enter fullscreen mode for the focused container Mod + f
+bindcode $mod+41 fullscreen
+
+# Layout stacked, tabbed, toggle split
+# Mod + s
+bindcode $mod + 39 layout stacking
+# Mod + w
+bindcode $mod + 25 layout tabbed
+
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Changing the curb
+# Mod + t
+bindcode $mod+31 border normal
+# Mod + y
+bindcode $mod+29 border 1pixel
+# Mod + u
+bindcode $mod+30 border none
+
+# Switching to Workspace
+# Mod + z
+bindcode $mod+52 workspace prev
+# Mod + x
+#bindcode $mod+53 workspace next
+# Mod + c
+bindcode $mod+54 workspace back_and_forth
+
+# Wallpaper
+# Mod + n
+# bindcode $mod+57 exec nitrogen
+
+# TODO not working
+# Browser
+# Mod + b
+# bindsym $mod+b exec google-chrome-stable
+
+# TODO not working
+# IDE
+# Mod + m
+bindcode $mod+58 exec $home/bin/apprun/ide.sh
+
+# Function keys
+## screenshot
+bindsym $mod+F3 exec scrot
+
+## brightness
+#bindsym $mod+F4 exec --no-startup-id $home/bin/br-down.sh
+#bindsym $mod+F5 exec --no-startup-id $home/bin/br-up.sh
+#bindsym XF86MonBrightnessDown exec --no-startup-id $home/bin/br-down.sh
+#bindsym XF86MonBrightnessUp exec --no-startup-id $home/i3/bin/br-up.sh
+#sudo xbacklight +50
+
+## loudness
+bindsym $mod+F11 exec --no-startup-id amixer -D pulse sset Master 5%- | cut -d"[" -f2 | sed -r 's/%.+//' | awk 'NR == 6{print}'
+bindsym $mod+F12 exec --no-startup-id amixer -D pulse sset Master 5%+ | cut -d"[" -f2 | sed -r 's/%.+//' | awk 'NR == 6{print}'
+bindsym Scroll_Lock exec amixer -D pulse sset Master toggle
+
+## player
+#bindsym $mod+F9 exec --no-startup-id mpc toggle
+#bindsym $mod+F10 exec --no-startup-id mpc stop
+#bindsym $mod+F11 exec --no-startup-id mpc prev
+#bindsym $mod+F12 exec --no-startup-id mpc next
+
+## Customizing windows
+for_window [class="(i?)ktorrent"] floating enable
+for_window [class="Nitrogen"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [class="xpad"] floating enable
+
+# Window in scratchpad Mod + shift + -
+bindcode $mod+Shift+20 move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# Mod + -
+bindcode $mod+20 scratchpad show
+
+# Switching to Workspace
+# Mod + 1..9, 0
+
+bindcode $mod+10 workspace $ws1
+bindcode $mod+11 workspace $ws2
+bindcode $mod+12 workspace $ws3
+bindcode $mod+13 workspace $ws4
+bindcode $mod+14 workspace $ws5
+bindcode $mod+15 workspace $ws6
+bindcode $mod+16 workspace $ws7
+bindcode $mod+17 workspace $ws8
+bindcode $mod+18 workspace $ws9
+bindcode $mod+19 workspace $ws10
+
+# Move the current workspace to the next output
+# (effectively toggles when you only have two outputs)
+#bindsym $mod+x exec $home/bin/switch.py
+bindsym $mod+Tab exec i3-swap
+bindsym $mod+Shift+x move workspace to output right
+
+# Moving to Workspace
+# Mod + shift + 1..9, 0
+bindcode $mod+Shift+10 move container to workspace $ws1
+bindcode $mod+Shift+11 move container to workspace $ws2
+bindcode $mod+Shift+12 move container to workspace $ws3
+bindcode $mod+Shift+13 move container to workspace $ws4
+bindcode $mod+Shift+14 move container to workspace $ws5
+bindcode $mod+Shift+15 move container to workspace $ws6
+bindcode $mod+Shift+16 move container to workspace $ws7
+bindcode $mod+Shift+17 move container to workspace $ws8
+bindcode $mod+Shift+18 move container to workspace $ws9
+bindcode $mod+Shift+19 move container to workspace $ws10
+
+# Mod + shift + r
+bindcode $mod+27 mode "resize"
+
+# Resize windows (You can use a mouse)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindcode $left       resize shrink width 10 px or 10 ppt
+        bindcode $down       resize grow height 10 px or 10 ppt
+        bindcode $up         resize shrink height 10 px or 10 ppt
+        bindcode $right      resize grow width 10 px or 10 ppt
+        #bindsym $mod+F12 exec --no-startup-id pactl set-sink-volume 0 -- +10% && killall -SIGUSR1 i3status
+     
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+#--------------------------------------
+# Assign section
+#--------------------------------------
+
+# We scatter on workspaces
+
+assign [class="(?i)firefox"] → $ws2
+assign [class="(?i)chrome"] → $ws2
+
+assign [class="(?i)atom"] → $ws3
+
+assign [class="(?i)subl"] → $ws4
+
+assign [class="(?i)thunar"] → $ws5
+
+
+assign [class="(?i)gwenview"] → $ws6
+assign [class="(?i)okular"] → $ws6
+assign [class="Viewnior"] $ws6
+
+assign [class="(?i)blender"] → $ws8
+assign [class="(?i)inkscape"] → $ws8
+assign [class="(?i)gimp"] → $ws8
+
+assign [class="(?i)libreoffice"] → $ws8
+
+assign [class="(?i)ktorrent"] → $ws9
+
+assign [class="(?i)nitrogen"] → $ws10
+
+#--------------------------------------
+# Other options
+# --------------------------------------
+
+# Mouse + $mod to move the floating window
+floating_modifier $mod
+
+gaps inner $gaps_inner
+gaps outer $gaps_outer
+
+# Curb =)
+new_window none
+new_float pixel 2
+
+hide_edge_borders both
+
+# We paint windows
+# class                 border   backgr.   text     indicator
+client.focused          $cbfocol $cbgfocol $ctfocol $cifocol
+client.focused_inactive $cbficol $cbgficol $ctficol $cificol
+client.unfocused        $cbuncol $cbguncol $ctuncol $ciuncol
+client.urgent           $cburcol $cbgurcol $cturcol $ciurcol
+client.placeholder      $cbplcol $cbgplcol $ctplcol $ciplcol
+
+client.background       #ffffff
+#--------------------------------------
+# Auto Backup
+#--------------------------------------
+
+exec --no-startup-id $home/bin/autostart.sh
+exec --no-startup-id $home/bin/i3-appmenu-service.py
+
+#--------------------------------------
+# Bar
+#--------------------------------------
+
+bar {
+    font pango: Roboto Condensed 9
+    status_command i3status -c $home/i3status
+    position top
+    workspace_buttons yes
+    # tray
+    tray_output LVDS1
+    tray_padding 1
+    separator_symbol ""
+    colors {
+        background $wbgcolor
+        statusline $wstcolor
+        separator  $wspcolor
+
+        # ws               border     bg         text
+        focused_workspace  $fwbcolor  $fwbgcolor  $fwtcolor
+        active_workspace   $awbcolor  $awbgcolor  $awtcolor
+        inactive_workspace $iwbcolor  $iwbgcolor  $iwtcolor
+        urgent_workspace   $uwbcolor  $uwbgcolor  $uwtcolor
+    }
+}
+
+
+#--------------------------------------
+# software
+#--------------------------------------
+
+#file manager
+bindsym $mod+e "exec thunar, workspace $ws5"
+#telegram-skype
+bindsym $mod+t "exec telegram-desktop, 
+                exec skypeforlinux, 
+                workspace $ws10"
+#idea-gitkraken
+bindsym $mod+Pause "exec intellij-idea-ultimate-edition, 
+                    exec gitkraken, 
+                    workspace $ws3"
