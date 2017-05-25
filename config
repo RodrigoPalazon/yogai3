@@ -115,7 +115,7 @@ bindcode $mod+Shift+27 restart
 # Mod+shift+e
 bindcode $mod+Shift+26 exec "i3-nagbar -t warning -m 'You a quiter??' -b 'Tottaly' 'i3-msg exit'"
 # Lock Mod+shift+l
-bindcode $mod+shift+46 exec i3lock
+bindcode $mod+shift+46 exec i3lock -c 000000
 
 # change focus
 #bindsym $mod+j focus left
