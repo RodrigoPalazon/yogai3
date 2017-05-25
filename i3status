@@ -8,19 +8,20 @@ general {
 }
 
 order += "cpu_usage 0"
-order += "disk /home"
-order += "ethernet enp8s0"
-order += "wireless wlp7s0"
+order += "cpu_temperature 0"
+order += "disk /"
+order += "ethernet enp0s25"
+order += "wireless wlo1"
 order += "volume master"
 order += "battery 0"
 order += "tztime local"
 
-wireless wlp7s0 {
+wireless wlo1 {
     format_up = "   %essid "
     format_down = "  down "
 }
 
-ethernet enp8s0 {
+ethernet enp0s25 {
     format_up = " : up "
     format_down = " : down "
 }
@@ -42,12 +43,16 @@ tztime local {
 }
 
 cpu_usage {
-    format = "  CPU: %usage"
+    format = " CPU: %usage "
 }
 
-disk "/home" {
-    format = "   %percentage_used of %total "
-    prefix_type = custom
+cpu_temperature 0 {
+        format = " T: %degrees °C "
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input" 
+}
+
+disk "/" {
+        format = "  %free "
 }
 
 volume master {
