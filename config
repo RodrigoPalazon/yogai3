@@ -89,13 +89,14 @@ set $ws10 10:
 
 # Terminal
 bindsym $mod+Return exec --no-startup-id urxvt
-bindsym $mod+Shift+Return exec --no-startup-id xterm
+# Backup terminal
+bindsym $mod+Shift+Return exec --no-startup-id xterm 
 
 # Close the mod + q window
 bindsym $mod+Shift+q kill
 
 # launcher mod + d
-bindsym $mod+d exec j4-dmenu-desktop
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
 
 # http://www.webupd8.org/2016/06/how-to-get-unity-like-hud-searchable.html
 # bindcode $mod+38 exec ~/.config/i3/bin/i3-hud-menu.py
