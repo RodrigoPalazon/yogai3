@@ -205,8 +205,8 @@ bindcode $mod+58 exec $home/bin/apprun/ide.sh
 bindsym --release $mod+F3 exec scrot -s
 
 ## brightness
-#bindsym $mod+F4 exec --no-startup-id $home/bin/br-down.sh
-#bindsym $mod+F5 exec --no-startup-id $home/bin/br-up.sh
+bindsym $mod+F4 exec python $home/bin/br-down.py
+bindsym $mod+F5 exec python $home/bin/br-up.py
 #bindsym XF86MonBrightnessDown exec --no-startup-id $home/bin/br-down.sh
 #bindsym XF86MonBrightnessUp exec --no-startup-id $home/i3/bin/br-up.sh
 #sudo xbacklight +50
@@ -215,12 +215,6 @@ bindsym --release $mod+F3 exec scrot -s
 bindsym $mod+F11 exec --no-startup-id amixer -D pulse sset Master 5%- | cut -d"[" -f2 | sed -r 's/%.+//' | awk 'NR == 6{print}'
 bindsym $mod+F12 exec --no-startup-id amixer -D pulse sset Master 5%+ | cut -d"[" -f2 | sed -r 's/%.+//' | awk 'NR == 6{print}'
 bindsym Scroll_Lock exec amixer -D pulse sset Master toggle
-
-## player
-#bindsym $mod+F9 exec --no-startup-id mpc toggle
-#bindsym $mod+F10 exec --no-startup-id mpc stop
-#bindsym $mod+F11 exec --no-startup-id mpc prev
-#bindsym $mod+F12 exec --no-startup-id mpc next
 
 ## Customizing windows
 for_window [class="(i?)ktorrent"] floating enable
@@ -252,7 +246,7 @@ bindcode $mod+19 workspace $ws10
 # Move the current workspace to the next output
 # (effectively toggles when you only have two outputs)
 #bindsym $mod+x exec $home/bin/switch.py
-bindsym $mod+Tab exec i3-swap
+bindsym $mod+Tab exec python $home/bin/i3switch.py
 bindsym $mod+Shift+x move workspace to output right
 
 # Moving to Workspace
@@ -356,34 +350,43 @@ client.background       #ffffff
 # Auto Backup
 #--------------------------------------
 
-exec --no-startup-id $home/bin/autostart.sh
+exec --no-startup-id lxpolkit
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id $home/bin/i3-appmenu-service.py
 
 #--------------------------------------
 # Bar
 #--------------------------------------
 
-bar {
-    font pango:Meslo LG S DZ for Powerline 10
-    status_command i3status -c $home/i3status
-    position top
-    workspace_buttons yes
-    # tray
-    #tray_output LVDS1
-    tray_padding 1
-    separator_symbol ""
-    colors {
-        background $wbgcolor
-        statusline $wstcolor
-        separator  $wspcolor
+#bar {
+#    font pango:Meslo LG S DZ for Powerline 10
+#    status_command i3status -c $home/i3status
+#    position top
+#    workspace_buttons yes
+#    # tray
+#    #tray_output LVDS1
+#    tray_padding 1
+#    separator_symbol ""
+#    colors {
+#        background $wbgcolor
+#        statusline $wstcolor
+#        separator  $wspcolor
 
-        # ws               border     bg         text
-        focused_workspace  $fwbcolor  $fwbgcolor  $fwtcolor
-        active_workspace   $awbcolor  $awbgcolor  $awtcolor
-        inactive_workspace $iwbcolor  $iwbgcolor  $iwtcolor
-        urgent_workspace   $uwbcolor  $uwbgcolor  $uwtcolor
-    }
+#        # ws               border     bg         text
+#        focused_workspace  $fwbcolor  $fwbgcolor  $fwtcolor
+#        active_workspace   $awbcolor  $awbgcolor  $awtcolor
+#        inactive_workspace $iwbcolor  $iwbgcolor  $iwtcolor
+#        urgent_workspace   $uwbcolor  $uwbgcolor  $uwtcolor
+#    }
+#}
+
+bar {
+    font pango:Meslo LG S DZ for Powerline 9
+    position top
+    tray_output DP-1
+    status_command $home/bumblebee-status/bumblebee-status -m nic disk:root cpu memory battery date time pasink pasource -p root.path=/ time.format="%H:%M:%S" date.format="%a, %d/%m/%Y" -t solarized-powerline
 }
+
 
 
 #--------------------------------------
