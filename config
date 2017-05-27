@@ -206,8 +206,9 @@ bindcode $mod+58 exec $home/bin/apprun/ide.sh
 bindsym --release $mod+F3 exec scrot -s
 
 ## brightness
-bindsym $mod+F4 exec python $home/bin/br-down.py
-bindsym $mod+F5 exec python $home/bin/br-up.py
+bindsym $mod+F1 exec python $home/bin/br-down.py
+bindsym $mod+F2 exec python $home/bin/br-up.py
+bindsym $mod+Shift+F1 exec python $home/bin/br-reset.py
 #bindsym XF86MonBrightnessDown exec --no-startup-id $home/bin/br-down.sh
 #bindsym XF86MonBrightnessUp exec --no-startup-id $home/i3/bin/br-up.sh
 #sudo xbacklight +50
