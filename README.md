@@ -25,5 +25,5 @@ Go to the folder ~/.config/i3/bin
 Run ```python i3switch.py THEME_NAME```, where THEME_NAME one of dark, gray or white-red
 
 ## Screenshots
-![scrrenshot](/bg/universe-nebula-1920x1080.jpg)
-![scrrenshot](/bg/106838.jpg)
+![scrrenshot](/bg/univ2.jpg)
+![scrrenshot](/bg/univ1.jpg)
