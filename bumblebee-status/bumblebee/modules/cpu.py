@@ -22,8 +22,6 @@ class Module(bumblebee.engine.Module):
             bumblebee.output.Widget(full_text=self.utilization)
         )
         self._utilization = psutil.cpu_percent(percpu=False)
-        engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
-            cmd="gnome-system-monitor")
 
     def utilization(self, widget):
         return "{:6.02f}%".format(self._utilization)
