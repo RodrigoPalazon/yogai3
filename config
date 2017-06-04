@@ -103,9 +103,9 @@ bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
 
 # System
 # mod + ctrl + r
-bindcode $mod+Ctrl+27 exec shutdown -r now
+#bindcode $mod+Ctrl+27 exec shutdown -r now
 # mod + ctrl + o
-bindcode $mod+Ctrl+32 exec shutdown -h now
+#bindcode $mod+Ctrl+32 exec shutdown -h now
 # Recause the config file
 # Mod + shift + c
 bindcode $mod+Shift+54 reload
@@ -154,9 +154,9 @@ bindcode $mod+41 fullscreen
 
 # Layout stacked, tabbed, toggle split
 # Mod + s
-#bindcode $mod + 39 layout stacking
-# Mod + w
-#bindcode $mod + 25 layout tabbed
+bindsym $mod + p layout stacking
+# Mod + wo
+bindsym $mod + o layout splith
 
 
 # toggle tiling / floating
@@ -360,36 +360,12 @@ exec --no-startup-id $home/bin/i3-appmenu-service.py
 # Bar
 #--------------------------------------
 
-#bar {
-#    font pango:Meslo LG S DZ for Powerline 10
-#    status_command i3status -c $home/i3status
-#    position top
-#    workspace_buttons yes
-#    # tray
-#    #tray_output LVDS1
-#    tray_padding 1
-#    separator_symbol ""
-#    colors {
-#        background $wbgcolor
-#        statusline $wstcolor
-#        separator  $wspcolor
-
-#        # ws               border     bg         text
-#        focused_workspace  $fwbcolor  $fwbgcolor  $fwtcolor
-#        active_workspace   $awbcolor  $awbgcolor  $awtcolor
-#        inactive_workspace $iwbcolor  $iwbgcolor  $iwtcolor
-#        urgent_workspace   $uwbcolor  $uwbgcolor  $uwtcolor
-#    }
-#}
-
 bar {
     font pango:Meslo LG S DZ for Powerline 9
     position top
-    tray_output DP-1
+    tray_output primary
     status_command $home/bumblebee-status/bumblebee-status -m nic disk:root cpu sensors memory battery date time pasink pasource -p root.path=/ time.format="%H:%M:%S" date.format="%a, %d/%m/%Y" -t solarized-powerline
 }
-
-
 
 #--------------------------------------
 # software
@@ -404,8 +380,7 @@ bindsym $mod+s "exec subl, workspace $ws4"
 bindsym $mod+a workspace $ws2; exec [ $(ps h -C google-chrome-stable | wc -l) = 0 ] && /usr/bin/google-chrome-stable -s
 
 #telegram-skype
-bindsym $mod+t "exec telegram-desktop, 
-                exec skypeforlinux, 
+bindsym $mod+t "exec skypeforlinux, 
                 workspace $ws10"
 #idea-gitkraken
 bindsym $mod+Pause "exec intellij-idea-ultimate-edition, 
