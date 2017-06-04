@@ -355,7 +355,8 @@ client.background       #ffffff
 exec --no-startup-id lxpolkit
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id $home/bin/i3-appmenu-service.py
-
+exec "setxkbmap -layout us,gr"
+exec "setxkbmap -option 'grp:alt_shift_toggle'"
 #--------------------------------------
 # Bar
 #--------------------------------------
@@ -375,6 +376,7 @@ bar {
 bindsym $mod+e "exec thunar, workspace $ws5"
 #sublime
 bindsym $mod+s "exec subl, workspace $ws4"
+
 #chrome
 #bindsym $mod+a "exec google-chrome-stable, workspace $ws2"
 bindsym $mod+a workspace $ws2; exec [ $(ps h -C google-chrome-stable | wc -l) = 0 ] && /usr/bin/google-chrome-stable -s

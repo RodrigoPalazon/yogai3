@@ -12,7 +12,7 @@ def main():
     # get current brightness of focused monitor
     output = subprocess.check_output("xrandr --verbose | awk '/%s/{f=1}/Brightness:/ && f{print $2; exit}'" %workspace, shell=True)
     #issue command to change brightness
-    newBrightnessValue = float(output)-0.2
+    newBrightnessValue = float(output)-0.1
     setBrightness = 'xrandr --output %s --brightness %s' %(workspace, newBrightnessValue)
     process = subprocess.Popen(setBrightness, shell=True, stdout=subprocess.PIPE)
 
