@@ -11,18 +11,18 @@ Using [bumblebee-status](https://github.com/tobi-wan-kenobi/bumblebee-status)
 - nitrogen
 - mpd
 - xrandr
-- [Font Roboto Condensed](https://aur.archlinux.org/packages/ttf-roboto/)
+- [Font Roboto Condensed](https://www.archlinux.org/packages/community/any/ttf-roboto/)
 - [Font Awesome](https://aur.archlinux.org/packages/ttf-font-awesome/)
-
-[i3-gaps](https://aur.archlinux.org/packages/i3-gaps-git/)
-[j4-dmenu-desktop](https://github.com/enkore/j4-dmenu-desktop)
+- [Powerline fonts](https://github.com/powerline/fonts)
+- [i3-gaps](https://aur.archlinux.org/packages/i3-gaps-git/)
+- [j4-dmenu-desktop](https://github.com/enkore/j4-dmenu-desktop)
+- [sudo pacman -S python-pip](https://www.archlinux.org/packages/extra/any/python-pip/)
+- [pip install i3-py](https://github.com/ziberna/i3-py)
 
 ## Install
 Copy/clone the entire contents of the directory in ~/.config/i3
 
-Go to the folder ~/.config/i3/bin
 
-Run ```python i3switch.py THEME_NAME```, where THEME_NAME one of dark, gray or white-red
 
 ## Screenshots
 ![scrrenshot](/bg/univ2.jpg)
