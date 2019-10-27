@@ -1,4 +1,4 @@
-# My i3config
+# Mine now, My i3config
 
 Based on [LightAir/i3config](https://github.com/LightAir/i3config)
 
